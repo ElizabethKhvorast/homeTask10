@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  homeTask10
 //
-//  Created by Sergey Hvorost on 2.10.22.
+//  Created by Elizabeth Hvorost on 2.10.22.
 //
 
 import UIKit

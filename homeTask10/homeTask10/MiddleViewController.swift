@@ -2,28 +2,39 @@
 //  MiddleViewController.swift
 //  homeTask10
 //
-//  Created by Sergey Hvorost on 2.10.22.
+//  Created by Elizabeth Hvorost on 2.10.22.
 //
 
 import UIKit
 
-class MiddleViewController: UIViewController {
-
-    override func viewDidLoad() {
+class MiddleViewController: BaseViewController
+{
+    var message: String?
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        if let presentingVC = self.presentingViewController as? BaseViewController
+        {
+            presentingVC.backMesage = self.backMesage
+        }
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let destination = segue.destination as? MiddleViewController
+        {
+            destination.message = self.message
+        }
+    }
+    
+    @IBAction func closePressed(_ sender: Any)
+    {
+        self.dismiss(animated: true)
+    }
 }

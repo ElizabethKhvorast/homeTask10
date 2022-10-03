@@ -2,20 +2,29 @@
 //  LastViewController.swift
 //  homeTask10
 //
-//  Created by Sergey Hvorost on 2.10.22.
+//  Created by Elizabeth Hvorost on 2.10.22.
 //
 
 import UIKit
 
 class LastViewController: MiddleViewController
 {
-    let backMessage = ["title" : "Hello!",
-                       "subtitle" : "Message received:", "message" : "What's up!"];
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var lastLabel: UILabel!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.messageLabel.text = self.message
+        self.lastLabel.text = self.message
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        let backMessage = ["title" : "Hello!",
+                           "subtitle" : "Message received:", "message" : "What's up!"];
+        if let presentingVC = self.presentingViewController as? BaseViewController
+        {
+            presentingVC.backMesage = backMessage
+        }
     }
 }
