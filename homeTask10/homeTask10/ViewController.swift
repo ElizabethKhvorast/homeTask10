@@ -26,6 +26,7 @@ class ViewController: BaseViewController
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
+        
         if let data = self.backMesage as? [String : String]
         {
             self.titleLabel.text = data["title"]
