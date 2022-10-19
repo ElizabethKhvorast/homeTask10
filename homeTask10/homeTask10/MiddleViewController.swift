@@ -19,6 +19,7 @@ class MiddleViewController: BaseViewController
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
+        
         if let presentingVC = self.presentingViewController as? BaseViewController
         {
             presentingVC.backMesage = self.backMesage
